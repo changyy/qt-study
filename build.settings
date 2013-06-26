@@ -1,0 +1,33 @@
+contains(TEMPLATE, lib)
+{
+	contains(CONFIG, plugin) : DESTDIR = $$PWD/lib/plugin
+	else : DESTDIR = $$PWD/lib
+}
+else
+{
+	DESTDIR = $$PWD/target
+}
+OBJECTS_DIR = $$PWD/obj/$${TARGET}
+MOC_DIR = $$PWD/obj/$${TARGET}
+
+INCLUDEPATH += . $$PWD $$PWD/include
+
+INTERNAL_LIBS = -L$${PWD}/lib
+for(lib, INTERNAL_REQUIRED_LIBS)
+{
+	INTERNAL_LIBS += -l$${lib}
+	QMAKE_CLEAN += $${PWD}/lib/$${lib}
+}
+
+PREBUILD_LIBS += -L$${PWD}/prebuild-libs
+#PREBUILD_LIBS += -lyourlib
+
+LIBS += $$INTERNAL_LIBS
+LIBS += $$EXTERNAL_LIBS
+LIBS += $$PREBUILD_LIBS
+
+BUILD_TARGET=$$(BUILD_TARGET)
+QMAKE_CXXFLAGS += -DBUILD_TARGET=$$BUILD_TARGET
+
+#TRANSLATIONS += $${PWD}/res/languages/$${TARGET}_zh_cn.ts 
+#TRANSLATIONS += $${PWD}/res/languages/$${TARGET}_zh_tw.ts 
