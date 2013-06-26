@@ -10,3 +10,5 @@ INCLUDEPATH += . ..
 
 # Input
 SOURCES += core-service.c
+
+include(../build.settings)

@@ -11,4 +11,4 @@ INCLUDEPATH += . ..
 SOURCES += main.c
 #LIBS += -L../prebuild-libs/ lwget
 #RESOURCES += $${PWD}/../res/main.qrc
-include($${PWD}/build.settings)
+include(../build.settings)

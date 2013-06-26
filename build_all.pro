@@ -1,5 +1,5 @@
 TEMPLATE = subdirs
-#include($$PWD/build.settings)
+include(build.settings)
 CONFIG += ordered
 EXTRAS_LIBS += main core-service
 

@@ -1,4 +1,4 @@
 Makefile
-Obj/*
-Target/*
-Lib/*
+obj/*
+target/*
+lib/*
